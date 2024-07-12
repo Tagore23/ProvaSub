@@ -1,0 +1,37 @@
+### Listar todos os IMCs
+GET http://localhost:5250/imc/listar
+
+### Cadastrar um novo IMC
+POST http://localhost:5250/imc/cadastrar
+Content-Type: application/json
+
+{
+    "alunoId": "",
+    "peso": 70.0,
+    "altura": 1.75
+}
+
+### Atualizar um IMC existente
+PUT http://localhost:5250/imc/atualizar/1
+Content-Type: application/json
+
+{
+    "alunoId": "3",
+    "peso": 72.0,
+    "altura": 1.76
+}
+
+### Deletar um IMC existente
+DELETE http://localhost:5250/imc/deletar/1
+
+### Listar IMC por aluno
+GET http://localhost:5250/imc/listarporaluno/3
+
+### Classificar IMC
+POST http://localhost:5250/imc/classificar
+Content-Type: application/json
+
+{
+    "peso": 70.0,
+    "altura": 1.75
+}

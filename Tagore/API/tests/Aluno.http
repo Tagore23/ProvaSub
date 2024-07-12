@@ -1,0 +1,36 @@
+### Listar todos os alunos
+GET http://localhost:5250/aluno/listar
+
+### Cadastrar um novo aluno
+POST http://localhost:5250/aluno/cadastrar
+Content-Type: application/json
+
+{
+    "Nome": "Carlos",
+    "Sobrenome": "Pereira",
+    "Altura": 1.80,
+    "Peso": 75.0
+}
+
+### Atualizar um aluno existente
+PUT http://localhost:5250/aluno/atualizar/{alunoId}
+Content-Type: application/json
+
+{
+    "Nome": "Carlos",
+    "Sobrenome": "Pereira da Silva",
+    "Altura": 1.80,
+    "Peso": 75.0
+}
+
+### Deletar um aluno existente
+DELETE http://localhost:5250/aluno/deletar/{alunoId}
+
+### Listar um aluno pelo ID
+GET http://localhost:5250/aluno/obter/{alunoId}
+
+### Listar todos os alunos com IMC
+GET http://localhost:5250/aluno/listarcomimc
+
+### Listar todos os alunos ordenados por nome
+GET http://localhost:5250/aluno/listarordenadonome
