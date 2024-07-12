@@ -32,15 +32,29 @@ app.MapGet("/aluno/listar", ([FromServices] AppDataContext ctx) =>
 // POST: http://localhost:5250/aluno/cadastrar
 app.MapPost("/aluno/cadastrar", ([FromServices] AppDataContext ctx, [FromBody] Aluno aluno) =>
 {
+  
+    if (string.IsNullOrEmpty(aluno.Nome) || string.IsNullOrEmpty(aluno.Sobrenome) || aluno.Altura <= 0 || aluno.Peso <= 0)
+    {
+        return Results.BadRequest("Todos os campos (Nome, Sobrenome, Altura e Peso) devem ser preenchidos corretamente.");
+    }
+
+ 
     if (ctx.Alunos.Any(a => a.Nome == aluno.Nome && a.Sobrenome == aluno.Sobrenome))
     {
         return Results.BadRequest("Aluno com mesmo nome e sobrenome já existe!");
     }
 
+ 
+    aluno.AlunoId = Guid.NewGuid().ToString();
+    
+ 
     ctx.Alunos.Add(aluno);
     ctx.SaveChanges();
+    
+
     return Results.Created($"/aluno/{aluno.AlunoId}", aluno);
 });
+
 
 // POST: http://localhost:5250/imc/cadastrar
 app.MapPost("/imc/cadastrar", ([FromServices] AppDataContext ctx, [FromBody] IMC request) =>

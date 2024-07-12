@@ -6,6 +6,7 @@ POST http://localhost:5250/aluno/cadastrar
 Content-Type: application/json
 
 {
+    "AlunoId": "6d091456-5a2f-4b5a-98fc-f1a3b50a627d",
     "Nome": "Carlos",
     "Sobrenome": "Pereira",
     "Altura": 1.80,
@@ -32,5 +33,4 @@ GET http://localhost:5250/aluno/obter/{alunoId}
 ### Listar todos os alunos com IMC
 GET http://localhost:5250/aluno/listarcomimc
 
-### Listar todos os alunos ordenados por nome
-GET http://localhost:5250/aluno/listarordenadonome
+
